@@ -26,15 +26,20 @@ function Search() {
       document.querySelector('#userName').style.borderColor = 'rgb(240, 135, 135)' 
       notify();
     }else{
-      await api.get(`http://localhost:3333/gitUser/${input}`).catch(error => {
-        notFound();
-       });
+      try
+      {  
+        // await api.get(`http://localhost:3333/gitUser/${input}`).catch(error => {
+        //   notFound();
+        // });
 
-        document.querySelector('#userName').style.borderColor = 'rgb(160, 160, 160)' 
-        await api.get(`http://localhost:3333/gitUser/${input}`).then(response => {
-        setRepos(response.data.gitUser.repos);
-        setFile(response.data.gitUser.image.url);
-      });
+          document.querySelector('#userName').style.borderColor = 'rgb(160, 160, 160)' 
+          await api.get(`http://localhost:3333/gitUser/${input}`).then(response => {
+          setRepos(response.data.gitUser.repos);
+          setFile(response.data.gitUser.image.url);
+        });
+      }catch(error){
+        notFound();
+      }
     }
   }
 
@@ -59,13 +64,16 @@ function Search() {
 
       <button className="quit" type="button" onClick={() => {logoutLe(); history.push('/'); window.location.reload();}}>Sair</button>
 
-      {file && <img src={file} alt="Profile-Pic"/>}
 
       <ul>
         {repos.map(repo => (
           <li key={repo.id}><a id="reposLink" href={getUser()+repo}>{repo}</a></li>
         ))}
       </ul>
+
+      {file && <img src={file} alt="Profile-Pic"/>}
+
+    
     </div>
   );
 }

@@ -10,7 +10,6 @@ export default function Routes() {
   const token = localStorage.getItem('token');
   const [isSigned, setSigned] = useState('');
 
-// TROCAR SISTEMA DE PERSISTENCIA DE SESSAO
   useMemo(() => {
     if(token !== null && token !== undefined){
       setSigned(true);
@@ -24,6 +23,7 @@ export default function Routes() {
 
     <Switch>
           <Route path="/home" exact component={Search}/>
+          <Route path="/registerAdmin" exact component={RegisterAdmin} />
     </Switch>
 
   ):(
@@ -31,7 +31,6 @@ export default function Routes() {
     <Switch>
           <Route path="/" exact component={SignIn} />
           <Route path="/signUp" exact component={SignUp} />
-          <Route path="/registerAdmin" exact component={RegisterAdmin} />
     </Switch>
 
   ); 

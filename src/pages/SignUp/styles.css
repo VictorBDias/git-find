@@ -1,0 +1,13 @@
+.divSign form div#img input#isAdmin{
+    width: 80%;
+    height: 32px;
+    margin-top: 16px;
+    margin-left: 10%;
+    background-color: aqua;
+   
+}
+
+.divSign form div#img label{
+    font-weight: 14px;
+   
+}

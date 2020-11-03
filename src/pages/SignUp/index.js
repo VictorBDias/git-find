@@ -104,7 +104,7 @@ async function sendRegister(e){
           onChange={e => setConfirm(e.target.value)}  
         />
 
-        <div>
+        <div id="img">
           <input
             type="checkbox"
             id="isAdmin"

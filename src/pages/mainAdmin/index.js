@@ -20,7 +20,7 @@ function RegisterAdmin() {
   const { register, handleSubmit, errors } = useForm();
 
   const notify2 = () => toast.error("Campo não pode ser vazio");
-  const notifyRedu = () => toast.error("Usuário já cadastrado");
+  const notifyRedu = () => toast.error("Erro ao cadastrar. verifique os inputs");
   const notify = () => toast("Usuário cadastrado com sucesso");
   const notify0 = () => toast("Os campos não podem ser vazios");
 
