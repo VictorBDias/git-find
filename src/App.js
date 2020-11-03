@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Search from './pages/main'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+//import {store, persistor} from './persist/index'
+import './styles.css'
+import RouteWrapper from './routes/authRoutes';
+import Routes from './routes/index'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import RegisterAdmin from './pages/mainAdmin'
 
-function App() {
+
+function App() { 
+ 
   return (
+    <Router>
+     
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header />
+          <ToastContainer />
+          <RegisterAdmin />
+          <Routes />
     </div>
-  );
-}
 
+    </Router>
+  );
+  }
 export default App;
