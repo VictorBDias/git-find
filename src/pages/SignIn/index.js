@@ -43,12 +43,15 @@ async function fetch(e){
     e.preventDefault();
     const login = {email: email, password: senha }
     await api.post('http://localhost:3333/auth/authenticate',login).then(response => {   
-          const {token} = response.data;
+          const {token, user} = response.data;
+          // console.log(response.data);
+          // console.log(token);
+          // console.log(user);
           notifyNice();
-          loginLe(token);
+          loginLe(token, user);
           api.defaults.headers.Authorization = `Bearer ${token}`;
           routeChoser();
-          //window.location.reload();
+          window.location.reload();
         }
     ); 
     }catch(err){

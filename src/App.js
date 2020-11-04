@@ -12,7 +12,6 @@ import RouteWrapper from './routes/authRoutes';
 import Routes from './routes/index'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RegisterAdmin from './pages/mainAdmin'
 
 
 function App() { 
@@ -23,7 +22,7 @@ function App() {
     <div className="App">
         <Header />
           <ToastContainer />
-          <RegisterAdmin />
+          <RouteWrapper />
           <Routes />
     </div>
 

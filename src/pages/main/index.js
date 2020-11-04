@@ -28,10 +28,6 @@ function Search() {
     }else{
       try
       {  
-        // await api.get(`http://localhost:3333/gitUser/${input}`).catch(error => {
-        //   notFound();
-        // });
-
           document.querySelector('#userName').style.borderColor = 'rgb(160, 160, 160)' 
           await api.get(`http://localhost:3333/gitUser/${input}`).then(response => {
           setRepos(response.data.gitUser.repos);
